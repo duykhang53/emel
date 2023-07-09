@@ -112,6 +112,33 @@ function getOptions(opts, defaults = defaultOptions) {
 	return options;
 }
 
+/**
+ * @typedef {string | string[]} PlaceholderValue
+ */
+
+/**
+ * @typedef {Record<string, PlaceholderValue | boolean | null | undefined>} PlaceholderMap
+ */
+
+/**
+ * @typedef {Object} Options
+ * @property {Document} [doc]
+ * @property {boolean} [multiline]
+ * @property {boolean} [returnSingleChild]
+ * @property {PlaceholderValue | Node | PlaceholderMap} [placeholders]
+ */
+
+/**
+ * @overload
+ * @param {string} [str]
+ * @param {Options & { returnSingleChild?: false | undefined }} [options]
+ * @returns {DocumentFragment}
+ *
+ * @overload
+ * @param {string} str
+ * @param {Options & { returnSingleChild: true }} options
+ * @returns {Node}
+ */
 export default function emel(str = "", options = {}) {
 
 	if (this instanceof emel) {
